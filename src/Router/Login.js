@@ -6,7 +6,6 @@ import "./styles.css";
 function Login() {
   const { register, handleSubmit, errors } = useForm();
   var onSubmit = (data) => {
-    alert(JSON.stringify(data));
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -14,7 +13,7 @@ function Login() {
     };
     fetch("http://localhost:5000/loginform", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => alert(data.message));
   };
   return (
     <div>
