@@ -7,7 +7,6 @@ import "./styles.css";
 function Register() {
   const { register, handleSubmit, watch, errors } = useForm();
   var onSubmit = (data) => {
-    alert(JSON.stringify(data));
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -15,7 +14,7 @@ function Register() {
     };
     fetch("http://localhost:5000/register", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => alert(data.message));
   };
   return (
     <div>
